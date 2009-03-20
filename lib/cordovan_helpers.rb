@@ -6,17 +6,11 @@ class Cordovan
 	private
 
 	def fit_in_grid(style)
-		if style[:v_pos].nil?
-			@height = style[:height]; @width = style[:width]
-			@v_grid = style[:v_grid]; @h_grid = style[:h_grid]
-			style
-		else
-			style[:height] = grid_slot_height(style)
-			style[:width] = grid_slot_width(style)
-			style[:top] = grid_slot_top(style)
-			style[:left] = grid_slot_left(style)
-			style
-		end
+		style[:height] = grid_slot_height(style)
+		style[:width] = grid_slot_width(style)
+		style[:top] = grid_slot_top(style)
+		style[:left] = grid_slot_left(style)
+		style
 	end
 
 	def split_style(style)
