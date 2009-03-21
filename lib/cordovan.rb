@@ -3,6 +3,7 @@
 # 
 # :title:Cordovan
 class Cordovan
+	require File.join( File.dirname( File.expand_path(__FILE__)), 'cordovan_color')
 	require File.join( File.dirname( File.expand_path(__FILE__)), 'cordovan_helpers')
 	require File.join( File.dirname( File.expand_path(__FILE__)), 'cordovan_native')
 	
@@ -16,10 +17,7 @@ class Cordovan
 		@shoes = eval('self', @@shoes_binding)
 		@height = style[:height]; @width = style[:width]
 		@v_grid = style[:v_grid]; @h_grid = style[:h_grid]
-		@shoes.background style[:background] unless style[:background].nil?
-		@shoes.flow do
-			@shoes.stroke @shoes.white; @shoes.fill @shoes.slategray
-			@shoes.rect :top => 10, :left => 10, :width => 580, :height => 560, :curve => 40
+		self.flow(style) do
 			yield self if block_given?
 		end
 	end
