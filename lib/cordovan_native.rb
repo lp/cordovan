@@ -9,35 +9,27 @@ class Cordovan
 	end
 	
 	def arc(style={})
-		in_grid(style) do |props|
-			@shoes.arc(props)
-		end
+		@shoes.arc( fit_in_grid( style))		
 	end
 	
 	def arrow(style={})
-		in_grid(style) do |props|
-			@shoes.arrow(props)
-		end
+		@shoes.arrow( fit_in_grid( style))
 	end
 	
 	def background(pattern,style={})
-		@shoes.background(pattern,style={})
+		@shoes.background( pattern, style={})
 	end
 	
 	def banner(text,style={})
-		in_grid(style) do |props|
-			@shoes.banner(text,props)
-		end
+		@shoes.banner( text, fit_in_grid( style))
 	end
 	
 	def border(color,style={})
-		@shoes.border(color,style={})
+		@shoes.border( color, style={})
 	end
 	
 	def button(text,style={})
-		in_grid(style) do |props|
-			@shoes.button(text,props) { yield if block_given? }
-		end
+		@shoes.button( text, fit_in_grid( style)) { yield if block_given? }
 	end
 	
 	def cap(type)
@@ -45,27 +37,19 @@ class Cordovan
 	end
 	
 	def caption(text,style={})
-		in_grid(style) do |props|
-			@shoes.caption(text,props)
-		end
+		@shoes.caption( text, fit_in_grid( style))
 	end
 	
 	def check(style={})
-		in_grid(style) do |props|
-			@shoes.check(props) { yield if block_given? }
-		end
+		@shoes.check( fit_in_grid( style)) { yield if block_given? }
 	end
 	
 	def code(text,style={})
-		in_grid(style) do |props|
-			@shoes.code(text,props)
-		end
+		@shoes.code(text, fit_in_grid( style))
 	end
 	
 	def del(text,style={})
-		in_grid(style) do |props|
-			@shoes.del(text,props)
-		end
+		@shoes.del(text, fit_in_grid( style))
 	end
 	
 	def dialog(styles={})
@@ -73,21 +57,15 @@ class Cordovan
 	end
 	
 	def edit_box(style={})
-		in_grid(style) do |props|
-			@shoes.edit_box(props) { yield if block_given? }
-		end
+		@shoes.edit_box( fit_in_grid( style)) { yield if block_given? }
 	end
 	
 	def edit_line(style={})
-		in_grid(style) do |props|
-			@shoes.edit_line(props) { yield if block_given? }
-		end
+		@shoes.edit_line( fit_in_grid( style)) { yield if block_given? }
 	end
 	
 	def em(text,style={})
-		in_grid(style) do |props|
-			@shoes.edit_line(props) { yield if block_given? }
-		end
+		@shoes.em( fit_in_grid( style)) { yield if block_given? }
 	end
 	
 	def every(seconds)
@@ -99,15 +77,11 @@ class Cordovan
 	end
 	
 	def flow(style={})
-		in_grid(style) do |props|
-			@shoes.flow(props) { yield if block_given? }
-		end
+		@shoes.flow( fit_in_grid( style)) { yield if block_given? }
 	end
 	
 	def image(url,style={})
-		in_grid(style) do |props|
-			@shoes.image(url,props)
-		end
+		@shoes.image( url, fit_in_grid( style))
 	end
 	
 	def imagesize(path)
@@ -115,15 +89,11 @@ class Cordovan
 	end
 	
 	def ins(text,style={})
-		in_grid(style) do |props|
-			@shoes.ins(text,props)
-		end
+		@shoes.ins( text, fit_in_grid( style))
 	end
 	
 	def inscription(text,style={})
-		in_grid(style) do |props|
-			@shoes.inscription(text,props)
-		end
+		@shoes.inscription( text, fit_in_grid( style))
 	end
 	
 	# not integrated in lattice!!!  TO BE CONTINUED!!!
@@ -132,15 +102,11 @@ class Cordovan
 	end
 	
 	def link(text,style={})
-		in_grid(style) do |props|
-			@shoes.link(text,props)
-		end
+		@shoes.link( text, fit_in_grid( style))
 	end
 	
 	def list_box(style={})
-		in_grid(style) do |props|
-			@shoes.list_box(props) { yield if block_given? }
-		end
+		@shoes.list_box( fit_in_grid( style)) { yield if block_given? }
 	end
 	
 	def nofill
@@ -152,39 +118,27 @@ class Cordovan
 	end
 	
 	def oval(style={})
-		in_grid(style) do |props|
-			@shoes.oval(props)
-		end
+		@shoes.oval( fit_in_grid( style))
 	end
 	
 	def para(text,style={})
-		in_grid(style) do |props|
-			@shoes.para(text,props)
-		end
+		@shoes.para( text, fit_in_grid( style))
 	end
 	
 	def progress(style={})
-		in_grid(style) do |props|
-			@shoes.progress(props)
-		end
+		@shoes.progress( fit_in_grid( style))
 	end
 	
 	def radio(group=nil,style={})
 		if group.nil?
-			in_grid(style) do |props|
-				@shoes.radio(props)
-			end
+			@shoes.radio( fit_in_grid( style))
 		else
-			in_grid(style) do |props|
-				@shoes.radio(group,props)
-			end
+			@shoes.radio( group, fit_in_grid( style))
 		end
 	end
 	
 	def rect(style={})
-		in_grid(style) do |props|
-			@shoes.rect(props)
-		end
+		@shoes.rect( fit_in_grid( style))
 	end
 	
 	def rotate(degrees)
@@ -192,21 +146,15 @@ class Cordovan
 	end
 	
 	def shape(style={})
-		in_grid(style) do |props|
-			@shoes.shape(props) { yield if block_given? }
-		end
+		@shoes.shape( fit_in_grid( style)) { yield if block_given? }
 	end
 	
 	def stack(style={})
-		in_grid(style) do |props|
-			@shoes.stack(props) { yield if block_given? }
-		end
+		@shoes.stack( fit_in_grid( style)) { yield if block_given? }
 	end
 	
 	def star(style={})
-		in_grid(style) do |props|
-			@shoes.stack(props) { yield if block_given? }
-		end
+		@shoes.stack( fit_in_grid( style)) { yield if block_given? }
 	end
 	
 	def stroke(color)
@@ -218,33 +166,23 @@ class Cordovan
 	end
 	
 	def strong(text,style={})
-		in_grid(style) do |props|
-			@shoes.stack(text,props)
-		end
+		@shoes.stack( text, fit_in_grid( style))
 	end
 	
 	def sub(text,style={})
-		in_grid(style) do |props|
-			@shoes.sub(text,props)
-		end
+		@shoes.sub( text, fit_in_grid( style))
 	end
 	
 	def subtitle(text,style={})
-		in_grid(style) do |props|
-			@shoes.sub(text,props)
-		end
+		@shoes.sub( text, fit_in_grid( style))
 	end
 	
 	def sup(text,style={})
-		in_grid(style) do |props|
-			@shoes.sup(text,props)
-		end
+		@shoes.sup( text, fit_in_grid( style))
 	end
 	
 	def tagline(text,style={})
-		in_grid(style) do |props|
-			@shoes.sup(text,props)
-		end
+		@shoes.sup( text, fit_in_grid( style))
 	end
 	
 	def timer(seconds)
@@ -252,9 +190,7 @@ class Cordovan
 	end
 	
 	def title(text,style={})
-		in_grid(style) do |props|
-			@shoes.title(text,props) { yield if block_given? }
-		end
+		@shoes.title( text, fit_in_grid( style)) { yield if block_given? }
 	end
 	
 	def transform(where)
@@ -267,9 +203,7 @@ class Cordovan
 	end
 	
 	def video(path,style={})
-		in_grid(style) do |props|
-			@shoes.video(path,props)
-		end
+		@shoes.video( path, fit_in_grid( style))
 	end
 	
 	def window(style={})
