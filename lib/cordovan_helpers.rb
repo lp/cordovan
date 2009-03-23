@@ -13,25 +13,6 @@ class Cordovan
 		style
 	end
 
-	def split_style(style)
-  	return {:height => style[:height],
-						:width => style[:width],
-						:top => style[:top],
-						:left => style[:left]},
-						style.delete_if { |k,v|
-							k == :height ||
-							k == :width ||
-							k == :top ||
-							k == :left }
-	end
-
-	def in_grid(style)
-		position, props = split_style( fit_in_grid( style))
-		@shoes.flow position do
-			yield props if block_given?
-		end
-	end
-
 	def grid_slot_height(style)
 		style[:v_span] = @v_grid if style[:v_span].nil?
 		(@height.to_f / @v_grid * style[:v_span]).to_i
