@@ -10,7 +10,6 @@ class Cordovan
 		style[:width] = grid_slot_width(style)
 		style[:top] = grid_slot_top(style)
 		style[:left] = grid_slot_left(style)
-		Shoes.debug("fit in grid: #{style.inspect} base h: #{@height.inspect} w: #{@width.inspect}")
 		style
 	end
 
@@ -35,21 +34,21 @@ class Cordovan
 
 	def grid_slot_height(style)
 		style[:v_span] = @v_grid if style[:v_span].nil?
-		@height / @v_grid * style[:v_span]
+		(@height.to_f / @v_grid * style[:v_span]).to_i
 	end
 
 	def grid_slot_width(style)
 		style[:h_span] = @h_grid if style[:h_span].nil?
-		@width / @h_grid * style[:h_span]
+		(@width.to_f / @h_grid * style[:h_span]).to_i
 	end
 
 	def grid_slot_top(style)
 		style[:v_pos] = 1 if style[:v_pos].nil? || style[:v_pos] < 1
-		@height / @v_grid * style[:v_pos]
+		(@height.to_f / @v_grid * (style[:v_pos]-1)).to_i
 	end
 
 	def grid_slot_left(style)
 		style[:h_pos] = 1 if style[:h_pos].nil? || style[:h_pos] < 1
-		@width / @h_grid * style[:h_pos]
+		(@width.to_f / @h_grid * (style[:h_pos]-1)).to_i
 	end
 end

@@ -17,7 +17,7 @@ class Cordovan
 		@shoes = eval('self', @@shoes_binding)
 		@height = style[:height]; @width = style[:width]
 		@v_grid = style[:v_grid]; @h_grid = style[:h_grid]
-		self.flow(style) do
+		@shoes.flow(style) do
 			yield self if block_given?
 		end
 	end
@@ -41,7 +41,6 @@ class Cordovan
 	end
 	
 	def method_missing(name,*args)
-		Shoes.debug("name is #{name.inspect}")
 		if @@crafts.include?(name)
 			craft = @@crafts[name]
 			style = craft[:style].merge(args[0])
