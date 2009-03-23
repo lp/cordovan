@@ -34,8 +34,7 @@ class Cordovan
 	end
 	
 	def lattice(style={})
-		style = fit_in_grid(style)
-		Cordovan.new(style) do |cordovan|
+		Cordovan.new( fit_in_grid(style)) do |cordovan|
 			yield cordovan if block_given?
 		end
 	end
@@ -43,9 +42,7 @@ class Cordovan
 	def method_missing(name,*args)
 		if @@crafts.include?(name)
 			craft = @@crafts[name]
-			style = craft[:style].merge(args[0])
-			style = fit_in_grid(style)
-			Cordovan.new(style) do |cordovan|
+			Cordovan.new( fit_in_grid( craft[:style].merge(args[0]))) do |cordovan|
 				craft[:block].call(cordovan)
 			end
 		else
