@@ -6,30 +6,31 @@ class Cordovan
 	private
 
 	def fit_in_grid(style)
-		style[:height] = grid_slot_height(style)
-		style[:width] = grid_slot_width(style)
-		style[:top] = grid_slot_top(style)
-		style[:left] = grid_slot_left(style)
-		style
-	end
-
-	def grid_slot_height(style)
 		style[:v_span] = @v_grid if style[:v_span].nil?
-		(@height.to_f / @v_grid * style[:v_span]).to_i
-	end
-
-	def grid_slot_width(style)
 		style[:h_span] = @h_grid if style[:h_span].nil?
-		(@width.to_f / @h_grid * style[:h_span]).to_i
-	end
-
-	def grid_slot_top(style)
 		style[:v_pos] = 1 if style[:v_pos].nil? || style[:v_pos] < 1
-		(@height.to_f / @v_grid * (style[:v_pos]-1)).to_i
+		style[:h_pos] = 1 if style[:h_pos].nil? || style[:h_pos] < 1
+		style[:height] = height_from(style[:v_span])
+		style[:width] = width_from(style[:h_span])
+		style[:left] = x_from(style[:h_pos])
+		style[:top] = y_from(style[:v_pos])
+		style
+	end 
+
+	def height_from(v_span)
+		(@height.to_f / @v_grid * v_span).to_i
 	end
 
-	def grid_slot_left(style)
-		style[:h_pos] = 1 if style[:h_pos].nil? || style[:h_pos] < 1
-		(@width.to_f / @h_grid * (style[:h_pos]-1)).to_i
+	def width_from(h_span)
+		(@width.to_f / @h_grid * h_span).to_i
 	end
+
+	def x_from(h_pos)
+		(@width.to_f / @h_grid * (h_pos-1)).to_i
+	end
+	
+	def y_from(v_pos)
+		(@height.to_f / @v_grid * (v_pos-1)).to_i
+	end
+	
 end
