@@ -4,9 +4,10 @@
 # :title:Cordovan
 class Cordovan
 	require File.join( File.dirname( File.expand_path(__FILE__)), 'cordovan_color')
+	require File.join( File.dirname( File.expand_path(__FILE__)), 'cordovan_edge_cases')
 	require File.join( File.dirname( File.expand_path(__FILE__)), 'cordovan_generic')
 	require File.join( File.dirname( File.expand_path(__FILE__)), 'cordovan_helpers')
-	require File.join( File.dirname( File.expand_path(__FILE__)), 'cordovan_native')
+	require File.join( File.dirname( File.expand_path(__FILE__)), 'cordovan_positioned')
 	
 	@@crafts = Hash.new
 	# To be initialize as top level matrix, needs the :height and :height of the shoes window
