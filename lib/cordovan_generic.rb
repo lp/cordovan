@@ -29,7 +29,6 @@ class Cordovan
 		ask_color
 		border
 		cap
-		clipboard=
 		confirm
 		debug
 		error
