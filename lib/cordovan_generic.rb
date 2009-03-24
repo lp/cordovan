@@ -9,7 +9,16 @@ class Cordovan
 		ask_save_file
 		ask_open_folder
 		ask_save_folder
+		clipboard
+		close
 		exit
+		gutter
+		location
+		mouse
+		nofill
+		nostroke
+		owner
+		started?
 		].each do |generic|
 		class_eval("def #{generic}; @shoes.#{generic}; end\n")
 	end
@@ -18,16 +27,50 @@ class Cordovan
 		alert
 		ask
 		ask_color
+		border
+		cap
+		clipboard=
 		confirm
 		debug
 		error
+		fill
 		font
 		gradient
 		gray
+		imagesize
 		info
 		rgb
+		rotate
+		stroke
+		strokewidth
+		transform
+		visit
 		warn
+		window
 		].each do |generic|
-		class_eval("def #{generic}(*args); @shoes.#{color}(*args); end\n")
+		class_eval("def #{generic}(*args); @shoes.#{generic}(*args); end\n")
+	end
+	# generic with arguments and block
+	%w[
+		animate
+		dialog
+		download
+		every
+		timer
+		].each do |generic|
+		class_eval("def #{generic}(*args); @shoes.#{generic}(*args) { yield if block_given? }; end\n")
+	end
+	# generic with block only
+	%w[
+		click
+		finish
+		hover
+		keypress
+		leave
+		motion
+		release
+		start
+		].each do |generic|
+		class_eval("def #{generic}; @shoes.#{generic} { yield if block_given? }; end\n")
 	end
 end
