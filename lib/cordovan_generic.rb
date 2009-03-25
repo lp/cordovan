@@ -43,6 +43,7 @@ class Cordovan
 		stroke
 		strokewidth
 		transform
+		translate
 		visit
 		warn
 		window

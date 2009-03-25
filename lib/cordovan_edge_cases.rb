@@ -4,14 +4,6 @@
 # :title:Cordovan
 class Cordovan
 	
-	def arc(style={})
-		@shoes.arc( fit_in_grid( style))		
-	end
-	
-	def arrow(style={})
-		@shoes.arrow( fit_in_grid( style))
-	end
-	
 	def clipboard=(string)
 		@shoes.clipboard = string
 	end
@@ -23,7 +15,9 @@ class Cordovan
 	end
 	
 	def oval(style={})
-		@shoes.oval( fit_in_grid( style))
+		style = fit_in_grid( style)
+		style[:radius] = width_from(style[:radius])
+		@shoes.oval( style)
 	end
 	
 	def radio(*args)
@@ -33,18 +27,18 @@ class Cordovan
 			@shoes.radio( args[0], fit_in_grid( args[1]))
 		end
 	end
-	
-	def shape(style={})
-		@shoes.shape( fit_in_grid( style)) { yield if block_given? }
+
+	def rect(style={})
+		style = fit_in_grid(style)
+		style[:corners] = width_from(style[:corners]) if style[:corners]
+		@shoes.rect( style)
 	end
 	
 	def star(style={})
-		@shoes.stack( fit_in_grid( style)) { yield if block_given? }
-	end
-	
-	# not integrated in lattice!!!  TO BE CONTINUED!!!
-	def translate(style={})
-		@shoes.translate(style)
+		style = fit_in_grid( style)
+		style[:outer] = width_from(style[:outer])
+		style[:inner] = width_from(style[:inner])
+		@shoes.stack( style)
 	end
 		
 end

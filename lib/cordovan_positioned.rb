@@ -5,8 +5,9 @@
 class Cordovan
 	# positioned with style only
 	%w[
+		arc
+		arrow
 		progress
-		rect
 		].each do |positioned|
 		class_eval("def #{positioned}(style={}); @shoes.#{positioned}( fit_in_grid( style)); end\n")
 	end
@@ -41,6 +42,7 @@ class Cordovan
 		edit_line
 		flow
 		list_box
+		shape
 		stack
 		].each do |positioned|
 		class_eval("def #{positioned}(style={}); @shoes.#{positioned}( fit_in_grid( style)) { yield if block_given? }; end\n")
