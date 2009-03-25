@@ -30,7 +30,8 @@ class Cordovan
 
 	def rect(style={})
 		style = fit_in_grid(style)
-		style[:corners] = width_from(style[:corners]) if style[:corners]
+		style[:curve] = width_from(style[:curve]) if style[:curve]
+		@shoes.debug("rect: #{style.inspect}")
 		@shoes.rect( style)
 	end
 	
