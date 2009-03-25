@@ -24,7 +24,7 @@ class Cordovan
 		end
 	end
 	
-	def self.lattice(shoes_binding,style={})
+	def self.matrice(shoes_binding,style={})
 		@@shoes_binding = shoes_binding
 		Cordovan.new(style) do |cordovan|
 			yield cordovan if block_given?
